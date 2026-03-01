@@ -138,7 +138,7 @@ Request
 }
 📋 Installation
 1. Clone Repository
-git clone https://github.com/your-username/diet-planner.git
+git clone https://github.com/DhavalMCA/AI-Nutrition-Planner.git
 cd diet-planner
 2. Create Virtual Environment
 python -m venv venv
@@ -167,3 +167,4 @@ The generated diet plans are AI-based and should not be considered professional 
 👤 Author
 
 Dhaval Prajapati
+
