@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your AI Diet Plan — 7 Day Meal Plan</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="bg-layer"></div>
+
+    <div class="container py-5 d-none" id="resultContainer">
+        <div class="glass-card text-white mx-auto" style="max-width: 1000px;">
+
+            <!-- Disclaimer Banner -->
+            <div class="disclaimer mb-4">
+                <div class="disclaimer-header" style="color: #f59e0b; text-align: center;">⚠️ Medical Disclaimer</div>
+                <p>This AI-generated meal plan is provided for informational and educational purposes only and is not
+                    intended as medical, nutritional, or dietary advice. The nutritional calculations are based on
+                    machine learning predictions using general population data and may not be accurate for your
+                    individual metabolic needs, health status, or medical conditions. Before starting any new diet plan,
+                    especially if you have diabetes, PCOS, thyroid disorders, food allergies, or any other health
+                    conditions, please consult a certified nutritionist, registered dietitian, or licensed healthcare
+                    provider. The creators of this application are not responsible for any health consequences resulting
+                    from following this meal plan.</p>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+                <h2 class="fw-bold neon-text mb-0">Your 7-Day Meal Plan</h2>
+                <div class="d-flex gap-2 flex-wrap">
+                    <button class="btn btn-pdf rounded-pill px-4" id="downloadPdfBtn">📄 Download PDF</button>
+                    <a href="/" class="btn btn-outline-info rounded-pill px-4">Create New Plan</a>
+                </div>
+            </div>
+
+            <!-- User Info Badges -->
+            <div class="d-flex flex-wrap gap-2 mb-4" id="userInfoBadges"></div>
+
+            <!-- Metrics Section -->
+            <h5 class="text-info mb-3 ps-1 fw-semibold">Estimated Daily Requirements</h5>
+            <div class="row g-3 mb-5">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="metric-badge">
+                        <div class="text-light opacity-75 small text-uppercase" style="letter-spacing: 1px;">BMI</div>
+                        <div class="metric-value fs-3" id="val-bmi">--</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="metric-badge">
+                        <div class="text-light opacity-75 small text-uppercase" style="letter-spacing: 1px;">Calories
+                        </div>
+                        <div class="metric-value fs-3" id="val-cals">--</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-4">
+                            <div class="metric-badge" style="border-color: rgba(168, 85, 247, 0.3);">
+                                <div class="text-light opacity-75 small text-uppercase" style="letter-spacing: 1px;">Pro
+                                </div>
+                                <div class="metric-value fs-4" style="color: #a855f7;" id="val-pro">--</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="metric-badge" style="border-color: rgba(236, 72, 153, 0.3);">
+                                <div class="text-light opacity-75 small text-uppercase" style="letter-spacing: 1px;">
+                                    Carbs</div>
+                                <div class="metric-value fs-4" style="color: #ec4899;" id="val-car">--</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="metric-badge" style="border-color: rgba(245, 158, 11, 0.3);">
+                                <div class="text-light opacity-75 small text-uppercase" style="letter-spacing: 1px;">Fat
+                                </div>
+                                <div class="metric-value fs-4" style="color: #f59e0b;" id="val-fat">--</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day Tabs -->
+            <h5 class="text-info mb-3 ps-1 fw-semibold">Weekly Diet Schedule</h5>
+            <div class="day-tabs mb-4" id="dayTabs"></div>
+
+            <!-- Meals Section (content per day) -->
+            <div id="dayContents"></div>
+
+            <!-- Shopping List Section -->
+            <div class="shopping-list-section mt-5" id="shoppingListSection" style="display: none;">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="text-info mb-0 ps-1 fw-semibold">🛒 Weekly Shopping List</h5>
+                    <button class="btn btn-outline-info btn-sm rounded-pill px-3" id="toggleShoppingList">Show
+                        List</button>
+                </div>
+                <div id="shoppingListContent" style="display: none;"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
