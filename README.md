@@ -334,5 +334,6 @@ This application generates diet plans using AI and machine learning. It is devel
 ## 📄 License
 
 This project is for educational and personal use.
-#   A I - N u t r i t i o n - P l a n n e r  
+#   A I - N u t r i t i o n - P l a n n e r 
+ 
  
